@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Jira.Api/Jira.Api.csproj" />
+    <Project Path="src/Jira.Application/Jira.Application.csproj" />
+    <Project Path="src/Jira.Domain/Jira.Domain.csproj" />
+    <Project Path="src/Jira.Infrastructure/Jira.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/" />
+</Solution>

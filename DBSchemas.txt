@@ -1,0 +1,37 @@
+1 User --> Many Workspace
+1 Workspace --> Many Project
+1 Project --> Many Tasks
+1 Project --> Many Users
+In 1 Project any users might have any role.
+
+
+Users
+-------------
+Id
+FirstName
+LastName
+Email
+PasswordHash
+CreatedAt
+UpdatedAt
+
+
+Workspaces
+-------------
+Id
+Name
+Description
+OwnerId
+CreatedAt
+UpdatedAt
+
+
+Projects
+-------------
+Id
+Name
+Description
+WorkspaceId
+Status
+CreatedAt
+UpdatedAt

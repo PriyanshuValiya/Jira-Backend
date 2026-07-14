@@ -1,0 +1,10 @@
+namespace Jira.Application.ProjectTasks.Models;
+
+public class GetProjectTasksModel
+{
+    public Guid WorkspaceId { get; set; }
+
+    public Guid ProjectId { get; set; }
+
+    public Guid OwnerId { get; set; }
+}
