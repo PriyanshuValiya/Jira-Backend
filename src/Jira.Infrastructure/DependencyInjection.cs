@@ -10,6 +10,8 @@ using Jira.Infrastructure.ProjectTasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Jira.Application.Logging.Interfaces;
+using Jira.Infrastructure.Logging;
 
 namespace Jira.Infrastructure;
 
@@ -33,6 +35,8 @@ public static class DependencyInjection
         services.AddScoped<IProjectService, ProjectService>();
 
         services.AddScoped<IProjectTaskService, ProjectTaskService>();
+
+        services.AddScoped<ILogService, LogService>();
 
         return services;
     }

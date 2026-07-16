@@ -4,7 +4,8 @@ public static class LoggerExtensions
 {
     public static void LogHttpRequest(this ILogger logger, HttpContext context)
     {
-        logger.LogInformation("[Request LOGS] : [{TraceId}]\n\tMethod: {Method}\n\tPath: {Path}",
+        logger.LogInformation("[Request LOGS] : [{RemoteIpAddress}]/[{TraceId}]\n\tMethod: {Method}\n\tPath: {Path}",
+            context.Connection.RemoteIpAddress,
             context.TraceIdentifier,
             context.Request.Method,
             context.Request.Path);
@@ -14,12 +15,7 @@ public static class LoggerExtensions
     {
         var statusCode = context.Response.StatusCode;
 
-        var logLevel = statusCode switch
-        {
-            >= 500 => LogLevel.Error,
-            >= 400 => LogLevel.Warning,
-            _ => LogLevel.Information
-        };
+        var logLevel = context.Response.StatusCode.GetLogLevel();
 
         logger.Log(logLevel,
             "[Response LOGS] : [{TraceId}]\n\tStatusCode: {StatusCode}\n\tCompleted in {ElapsedMilliseconds} ms",

@@ -31,6 +31,8 @@ public class ProjectTaskService : IProjectTaskService
             throw new NotFoundException("Project not found.");
         }
 
+        _logger.LogDebug("Creating project task with title: {Title} for project ID: {ProjectId}", model.Title, model.ProjectId);
+
         var projectTask = new ProjectTask
         {
             Title = model.Title,
@@ -115,6 +117,8 @@ public class ProjectTaskService : IProjectTaskService
             _logger.LogWarning("Attempt to update non-existent project task: {ProjectTaskId}", model.ProjectTaskId);
             throw new NotFoundException("Task not found.");
         }
+
+        _logger.LogDebug("Updating project task with ID: {ProjectTaskId}", task.Id);
 
         task.Title = model.Title;
         task.Description = model.Description;
