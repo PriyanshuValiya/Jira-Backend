@@ -78,8 +78,6 @@ public class AuthService : IAuthService
 
         var (accessToken, expiresAtUtc) = _tokenService.GenerateToken(user);
 
-        _logger.LogInformation("User logged in successfully with email: {Email}", request.Email);
-
         return new LoginResponse
         {
             AccessToken = accessToken,
